@@ -1,11 +1,69 @@
 // Sample data structure for each region
 const locationData = {
-    detroit: {
-        center: [42.564365, -83.440442],
+    la: {
+        center: [33.680355, -117.668628],  // Foothill Ranch coordinates
         zoom: 10,
         nodes: [
-            { id: 'Walled Lake', kids: 1809, prime: true, lat: 42.564365, lng: -83.440442 }
-        ]
+            { id: 'Foothill Ranch', kids: 4912, prime: true, lat: 33.680355, lng: -117.668628 },
+            { id: 'Alicia', kids: 4601, prime: false, lat: 33.601372, lng: -117.689109 },
+            { id: 'Las Flores', kids: 4912, prime: false, lat: 33.589722, lng: -117.625833 }
+        ],
+        distances: {
+            'Foothill Ranch': {
+                'Alicia': 13.9,
+                'Las Flores': 11.3
+            },
+            'Alicia': {
+                'Las Flores': 5.4
+            }
+        },
+        times: {
+            'Foothill Ranch': {
+                'Alicia': 17,
+                'Las Flores': 16
+            },
+            'Alicia': {
+                'Las Flores': 13
+            }
+        }
+    },
+    stlouis: {
+        center: [38.566822, -90.4047],  // Kirkwood coordinates
+        zoom: 10,
+        nodes: [
+            { id: 'Kirkwood', kids: 2059, prime: true, lat: 38.566822, lng: -90.4047 },
+            { id: 'Arbor Spring', kids: 1395, prime: false, lat: 38.569319, lng: -90.525659 },
+            { id: 'Central West End (laclede)', kids: 386, prime: false, lat: 38.637199, lng: -90.248919 },
+            { id: 'Creve Coeur', kids: 1100, prime: false, lat: 38.668648, lng: -90.437884 }
+        ],
+        distances: {
+            'Kirkwood': {
+                'Arbor Spring': 6.9,
+                'Central West End (laclede)': 11.9,
+                'Creve Coeur': 10.0
+            },
+            'Arbor Spring': {
+                'Central West End (laclede)': 20.1,
+                'Creve Coeur': 11.9
+            },
+            'Central West End (laclede)': {
+                'Creve Coeur': 14.4
+            }
+        },
+        times: {
+            'Kirkwood': {
+                'Arbor Spring': 16,
+                'Central West End (laclede)': 19,
+                'Creve Coeur': 15
+            },
+            'Arbor Spring': {
+                'Central West End (laclede)': 29,
+                'Creve Coeur': 21
+            },
+            'Central West End (laclede)': {
+                'Creve Coeur': 24
+            }
+        }
     },
     chicago: {
         center: [41.878113, -87.629799],
@@ -24,19 +82,184 @@ const locationData = {
             { id: 'West Loop', kids: 2369, prime: false, lat: 41.884321, lng: -87.647437 },
             { id: 'Wicker Park', kids: 2419, prime: false, lat: 41.909904, lng: -87.677234 }
         ],
+        distances: {
+            'Downtown Naperville': {
+                'Burr Ridge': 18.6,
+                'Deerbrook': 38.3,
+                'Downers Grove': 8.3,
+                'Evanston': 38.3,
+                'Lincoln Park': 34.3,
+                'Magnificent Mile': 32.3,
+                'Oak Brook': 12.9,
+                'Old Town': 32.6,
+                'South Naperville': 9.1,
+                'West Loop': 30.7,
+                'Wicker Park': 30.4
+            },
+            'Burr Ridge': {
+                'Deerbrook': 32.0,
+                'Downers Grove': 10.0,
+                'Evanston': 32.0,
+                'Lincoln Park': 24.5,
+                'Magnificent Mile': 21.4,
+                'Oak Brook': 9.2,
+                'Old Town': 21.4,
+                'South Naperville': 19.9,
+                'West Loop': 19.5,
+                'Wicker Park': 19.1
+            },
+            'Deerbrook': {
+                'Downers Grove': 30.0,
+                'Evanston': 2.9,
+                'Lincoln Park': 15.6,
+                'Magnificent Mile': 17.6,
+                'Oak Brook': 27.3,
+                'Old Town': 15.0,
+                'South Naperville': 39.6,
+                'West Loop': 19.8,
+                'Wicker Park': 16.7
+            },
+            'Downers Grove': {
+                'Evanston': 30.0,
+                'Lincoln Park': 26.0,
+                'Magnificent Mile': 24.0,
+                'Oak Brook': 4.6,
+                'Old Town': 24.3,
+                'South Naperville': 1.2,
+                'West Loop': 22.4,
+                'Wicker Park': 22.1
+            },
+            'Evanston': {
+                'Lincoln Park': 12.7,
+                'Magnificent Mile': 14.7,
+                'Oak Brook': 27.3,
+                'Old Town': 12.1,
+                'South Naperville': 39.6,
+                'West Loop': 16.9,
+                'Wicker Park': 13.8
+            },
+            'Lincoln Park': {
+                'Magnificent Mile': 2.0,
+                'Oak Brook': 21.4,
+                'Old Town': 0.6,
+                'South Naperville': 35.6,
+                'West Loop': 4.2,
+                'Wicker Park': 2.9
+            },
+            'Magnificent Mile': {
+                'Oak Brook': 19.4,
+                'Old Town': 1.4,
+                'South Naperville': 33.6,
+                'West Loop': 2.2,
+                'Wicker Park': 2.7
+            },
+            'Oak Brook': {
+                'Old Town': 19.7,
+                'South Naperville': 14.2,
+                'West Loop': 17.8,
+                'Wicker Park': 17.5
+            },
+            'Old Town': {
+                'South Naperville': 33.9,
+                'West Loop': 3.6,
+                'Wicker Park': 2.3
+            },
+            'South Naperville': {
+                'West Loop': 31.2,
+                'Wicker Park': 30.9
+            },
+            'West Loop': {
+                'Wicker Park': 1.3
+            }
+        },
         times: {
             'Downtown Naperville': {
-                'Burr Ridge': 35,
-                'Deerbrook': 75,
+                'Burr Ridge': 25,
+                'Deerbrook': 44,
+                'Downers Grove': 17,
+                'Evanston': 59,
+                'Lincoln Park': 54,
+                'Magnificent Mile': 48,
+                'Oak Brook': 18,
+                'Old Town': 47,
+                'South Naperville': 21,
+                'West Loop': 42,
+                'Wicker Park': 47
+            },
+            'Burr Ridge': {
+                'Deerbrook': 34,
                 'Downers Grove': 20,
-                'Evanston': 65,
-                'Lincoln Park': 55,
-                'Magnificent Mile': 50,
-                'Oak Brook': 30,
-                'Old Town': 50,
-                'South Naperville': 15,
-                'West Loop': 45,
-                'Wicker Park': 55
+                'Evanston': 49,
+                'Lincoln Park': 34,
+                'Magnificent Mile': 31,
+                'Oak Brook': 16,
+                'Old Town': 34,
+                'South Naperville': 28,
+                'West Loop': 29,
+                'Wicker Park': 34
+            },
+            'Deerbrook': {
+                'Downers Grove': 34,
+                'Evanston': 15,
+                'Lincoln Park': 24,
+                'Magnificent Mile': 26,
+                'Oak Brook': 31,
+                'Old Town': 23,
+                'South Naperville': 45,
+                'West Loop': 29,
+                'Wicker Park': 26
+            },
+            'Downers Grove': {
+                'Evanston': 42,
+                'Lincoln Park': 37,
+                'Magnificent Mile': 34,
+                'Oak Brook': 11,
+                'Old Town': 37,
+                'South Naperville': 4,
+                'West Loop': 32,
+                'Wicker Park': 37
+            },
+            'Evanston': {
+                'Lincoln Park': 21,
+                'Magnificent Mile': 23,
+                'Oak Brook': 42,
+                'Old Town': 20,
+                'South Naperville': 60,
+                'West Loop': 26,
+                'Wicker Park': 23
+            },
+            'Lincoln Park': {
+                'Magnificent Mile': 6,
+                'Oak Brook': 31,
+                'Old Town': 3,
+                'South Naperville': 55,
+                'West Loop': 11,
+                'Wicker Park': 8
+            },
+            'Magnificent Mile': {
+                'Oak Brook': 28,
+                'Old Town': 5,
+                'South Naperville': 49,
+                'West Loop': 8,
+                'Wicker Park': 10
+            },
+            'Oak Brook': {
+                'Old Town': 31,
+                'South Naperville': 22,
+                'West Loop': 26,
+                'Wicker Park': 31
+            },
+            'Old Town': {
+                'South Naperville': 48,
+                'West Loop': 8,
+                'Wicker Park': 5
+            },
+            'South Naperville': {
+                'West Loop': 43,
+                'Wicker Park': 48
+            },
+            'West Loop': {
+                'Wicker Park': 7
             }
         }
     },
@@ -53,7 +276,115 @@ const locationData = {
             { id: 'Reston', kids: 5062, prime: false, lat: 38.959824, lng: -77.357331 },
             { id: 'South Riding', kids: 6894, prime: false, lat: 38.908333, lng: -77.516667 },
             { id: 'West Alex', kids: 3031, prime: false, lat: 38.815767, lng: -77.129087 }
-        ]
+        ],
+        distances: {
+            'Broadlands': {
+                'Chantilly': 14.6,
+                'Fairfax': 22.2,
+                'Gambrills': 60.4,
+                'Hampshire': 56.4,
+                'Montclair': 35.7,
+                'Reston': 14.8,
+                'South Riding': 7.7,
+                'West Alex': 35.9
+            },
+            'Chantilly': {
+                'Fairfax': 9.4,
+                'Gambrills': 60.7,
+                'Hampshire': 48.4,
+                'Montclair': 30.1,
+                'Reston': 15.1,
+                'South Riding': 6.2,
+                'West Alex': 27.9
+            },
+            'Fairfax': {
+                'Gambrills': 50.6,
+                'Hampshire': 40.1,
+                'Montclair': 23.5,
+                'Reston': 11.9,
+                'South Riding': 11.8,
+                'West Alex': 18.5
+            },
+            'Gambrills': {
+                'Hampshire': 43.9,
+                'Montclair': 66.3,
+                'Reston': 52.5,
+                'South Riding': 56.9,
+                'West Alex': 45.1
+            },
+            'Hampshire': {
+                'Montclair': 46.2,
+                'Reston': 40.1,
+                'South Riding': 44.5,
+                'West Alex': 32.7
+            },
+            'Montclair': {
+                'Reston': 38.4,
+                'South Riding': 32.7,
+                'West Alex': 27.4
+            },
+            'Reston': {
+                'South Riding': 13.5,
+                'West Alex': 29.7
+            },
+            'South Riding': {
+                'West Alex': 33.9
+            }
+        },
+        times: {
+            'Broadlands': {
+                'Chantilly': 19,
+                'Fairfax': 30,
+                'Gambrills': 68,
+                'Hampshire': 67,
+                'Montclair': 58,
+                'Reston': 23,
+                'South Riding': 17,
+                'West Alex': 42
+            },
+            'Chantilly': {
+                'Fairfax': 17,
+                'Gambrills': 67,
+                'Hampshire': 64,
+                'Montclair': 43,
+                'Reston': 22,
+                'South Riding': 15,
+                'West Alex': 39
+            },
+            'Fairfax': {
+                'Gambrills': 58,
+                'Hampshire': 53,
+                'Montclair': 41,
+                'Reston': 27,
+                'South Riding': 25,
+                'West Alex': 31
+            },
+            'Gambrills': {
+                'Hampshire': 54,
+                'Montclair': 74,
+                'Reston': 62,
+                'South Riding': 66,
+                'West Alex': 53
+            },
+            'Hampshire': {
+                'Montclair': 55,
+                'Reston': 50,
+                'South Riding': 54,
+                'West Alex': 42
+            },
+            'Montclair': {
+                'Reston': 48,
+                'South Riding': 42,
+                'West Alex': 37
+            },
+            'Reston': {
+                'South Riding': 23,
+                'West Alex': 39
+            },
+            'South Riding': {
+                'West Alex': 43
+            }
+        }
     },
     nyc: {
         center: [40.840127, -74.035767],
@@ -63,7 +394,21 @@ const locationData = {
             { id: 'Mahwah', kids: 2059, prime: true, lat: 41.088976, lng: -74.143644 },
             { id: 'Bridgewater', kids: 2261, prime: false, lat: 40.596431, lng: -74.604906 },
             { id: 'Williamsburg', kids: 8172, prime: false, lat: 40.714052, lng: -73.961773 }
-        ]
+        ],
+        distances: {
+            'Brooklyn Heights': {
+                'Mahwah': 34.4,
+                'Bridgewater': 50.5,
+                'Williamsburg': 4.2
+            },
+            'Mahwah': {
+                'Bridgewater': 44.2,
+                'Williamsburg': 33.6
+            },
+            'Bridgewater': {
+                'Williamsburg': 45.1
+            }
+        }
     },
     raleigh: {
         center: [35.79565, -78.648018],
@@ -71,7 +416,12 @@ const locationData = {
         nodes: [
             { id: 'Cary', kids: 2893, prime: true, lat: 35.791538, lng: -78.781126 },
             { id: 'Spruce Tree', kids: 2249, prime: false, lat: 35.837843, lng: -78.644527 }
-        ]
+        ],
+        distances: {
+            'Cary': {
+                'Spruce Tree': 23.1
+            }
+        }
     }
 };
 
@@ -81,16 +431,16 @@ const locationData = {
 const maps = {};
 const pathLayers = {};
 
-// Calculate distance between two points using Haversine formula
-function calculateDistance(lat1, lon1, lat2, lon2) {
-    const R = 6371; // Earth's radius in km
-    const dLat = (lat2 - lat1) * Math.PI / 180;
-    const dLon = (lon2 - lon1) * Math.PI / 180;
-    const a = Math.sin(dLat/2) * Math.sin(dLat/2) +
-              Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) * 
-              Math.sin(dLon/2) * Math.sin(dLon/2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-    return R * c;
+// Get distance between two nodes from the matrix data
+function getDistance(fromNode, toNode, region) {
+    // Use predefined distances if available
+    if (locationData[region].distances?.[fromNode.id]?.[toNode.id]) {
+        return locationData[region].distances[fromNode.id][toNode.id];
+    }
+    if (locationData[region].distances?.[toNode.id]?.[fromNode.id]) {
+        return locationData[region].distances[toNode.id][fromNode.id];
+    }
+    return null;
 }
 
 // Calculate travel time between two nodes
@@ -102,11 +452,7 @@ function calculateTime(fromNode, toNode, region) {
     if (locationData[region].times?.[toNode.id]?.[fromNode.id]) {
         return locationData[region].times[toNode.id][fromNode.id];
     }
-    
-    // Otherwise calculate based on distance
-    const distance = calculateDistance(fromNode.lat, fromNode.lng, toNode.lat, toNode.lng);
-    const avgSpeed = 50; // km/h
-    return Math.round((distance / avgSpeed) * 60); // Convert to minutes
+    return null;
 }
 
 // Find optimal path starting from prime location
@@ -284,8 +630,14 @@ function createNetwork(region) {
         }
         
         if (nextNode) {
-            totalDistance += calculateDistance(currentNode.lat, currentNode.lng, nextNode.lat, nextNode.lng);
-            pathTotalTime += calculateTime(currentNode, nextNode, region);
+            const distance = getDistance(currentNode, nextNode, region);
+            const time = calculateTime(currentNode, nextNode, region);
+            if (distance !== null) {
+                totalDistance += distance;
+            }
+            if (time !== null) {
+                pathTotalTime += time;
+            }
         }
     }
     
@@ -312,11 +664,11 @@ function createNetwork(region) {
                         }
                         
                         if (!node.filtered && !nextNode.filtered) {
-                            const distance = calculateDistance(node.lat, node.lng, nextNode.lat, nextNode.lng);
+                            const distance = getDistance(node, nextNode, region);
                             const time = calculateTime(node, nextNode, region);
                             nextInfo = {
-                                distance: `${distance.toFixed(1)} km`,
-                                time: `${time} min`
+                                distance: distance !== null ? `${distance.toFixed(1)} mi` : '-',
+                                time: time !== null ? `${time} min` : '-'
                             };
                         }
                     }
