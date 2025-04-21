@@ -390,7 +390,7 @@ const locationData = {
         center: [40.840127, -74.035767],
         zoom: 9,
         nodes: [
-            { id: 'Brooklyn Heights', kids: 7065, prime: true, lat: 40.697824, lng: -73.993462 },
+            { id: 'Brooklyn Heights', kids: 7065, prime: false, lat: 40.697824, lng: -73.993462 },
             { id: 'Mahwah', kids: 2059, prime: true, lat: 41.088976, lng: -74.143644 },
             { id: 'Bridgewater', kids: 2261, prime: false, lat: 40.596431, lng: -74.604906 },
             { id: 'Williamsburg', kids: 8172, prime: false, lat: 40.714052, lng: -73.961773 }
@@ -455,6 +455,42 @@ function calculateTime(fromNode, toNode, region) {
     return null;
 }
 
+// Get the N closest nodes to a given node by travel time
+function getNearestNodes(fromNode, nodes, region, n) {
+    return nodes
+        .map(node => ({
+            node,
+            time: calculateTime(fromNode, node, region)
+        }))
+        .sort((a, b) => a.time - b.time)
+        .slice(0, n)
+        .map(x => x.node);
+}
+
+// Generate permutations for a small set of nodes
+function permute(arr) {
+    if (arr.length <= 1) return [arr];
+    const result = [];
+    for (let i = 0; i < arr.length; i++) {
+        const current = arr[i];
+        const remaining = [...arr.slice(0, i), ...arr.slice(i + 1)];
+        const perms = permute(remaining);
+        for (const perm of perms) {
+            result.push([current, ...perm]);
+        }
+    }
+    return result;
+}
+
+// Calculate total time for a sequence of nodes
+function calculateSequenceTime(nodes, region) {
+    let totalTime = 0;
+    for (let i = 0; i < nodes.length - 1; i++) {
+        totalTime += calculateTime(nodes[i], nodes[i + 1], region);
+    }
+    return totalTime;
+}
+
 // Find optimal path starting from prime location
 function findOptimalPath(nodes, region) {
     if (nodes.length <= 1) return { path: nodes, totalTime: 0, totalMarket: nodes[0]?.kids || 0 };
@@ -467,31 +503,37 @@ function findOptimalPath(nodes, region) {
     // Try each prime node as a starting point
     primeNodes.forEach(startNode => {
         let currentPath = [startNode];
-        let unvisited = [...nonPrimeNodes, ...primeNodes.filter(n => n !== startNode)];
+        let unvisited = [...nonPrimeNodes];
         let totalTime = 0;
         let totalMarket = startNode.kids;
         
         while (unvisited.length > 0) {
-            let minTime = Infinity;
-            let nextNode = null;
-            let nextIndex = -1;
+            const lastNode = currentPath[currentPath.length - 1];
             
-            unvisited.forEach((node, index) => {
-                const lastNode = currentPath[currentPath.length - 1];
-                const time = calculateTime(lastNode, node, region);
-                
-                if (time < minTime) {
-                    minTime = time;
-                    nextNode = node;
-                    nextIndex = index;
+            // Get the 4 nearest unvisited nodes (or all if less than 4)
+            const numNeighbors = Math.min(4, unvisited.length);
+            const nearestNodes = getNearestNodes(lastNode, unvisited, region, numNeighbors);
+            
+            // Try all permutations of these nearest nodes
+            const perms = permute(nearestNodes);
+            let bestSequence = null;
+            let bestSequenceTime = Infinity;
+            
+            perms.forEach(sequence => {
+                const sequenceTime = calculateSequenceTime([lastNode, ...sequence], region);
+                if (sequenceTime < bestSequenceTime) {
+                    bestSequenceTime = sequenceTime;
+                    bestSequence = sequence;
                 }
             });
             
-            if (nextNode) {
+            // Add the first node from the best sequence to our path
+            if (bestSequence && bestSequence.length > 0) {
+                const nextNode = bestSequence[0];
                 currentPath.push(nextNode);
-                totalTime += minTime;
+                totalTime += calculateTime(lastNode, nextNode, region);
                 totalMarket += nextNode.kids;
-                unvisited.splice(nextIndex, 1);
+                unvisited = unvisited.filter(n => n !== nextNode);
             }
         }
         
