@@ -1,0 +1,7 @@
+From Location,To Location,Distance (miles),Travel Time (minutes)
+"Brooklyn Heights, NY","Mahwah, NJ",34.4,1:06:00
+"Brooklyn Heights, NY","Bridgewater, NJ",50.5,1:04:00
+"Brooklyn Heights, NY","Williamsburg, NY",4.2,0:20:00
+"Mahwah, NJ","Bridgewater, NJ",44.2,0:46:00
+"Mahwah, NJ","Williamsburg, NY",33.6,1:00:00
+"Bridgewater, NJ","Williamsburg, NY",45.1,1:09:00

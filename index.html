@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Analyzer</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Location Network Analysis</h1>
+        
+    
+
+        <div class="network-grid">
+            <div class="network-card">
+                <h2>Chicago Area</h2>
+                <div id="chicago-network" class="map-container"></div>
+                <div class="network-controls">
+                    <div class="slider-container">
+                        <label>Remove Lowest Market Nodes: <span id="chicago-removed-count">0</span></label>
+                        <input type="range" id="chicago-threshold" min="0" max="11" value="0" class="node-threshold">
+                    </div>
+                </div>
+                <div class="path-info" id="chicago-path">
+                    <h3>Optimal Path</h3>
+                    <div class="path-steps"></div>
+                    <div class="path-summary">
+                        <div>Total Time: <span class="total-time">0</span> minutes</div>
+                        <div>Total Distance: <span class="total-distance">0</span> km</div>
+                    </div>
+                </div>
+            </div>
+            <div class="network-card">
+                <h2>DC Area</h2>
+                <div id="dc-network" class="map-container"></div>
+                <div class="network-controls">
+                    <div class="slider-container">
+                        <label>Remove Lowest Market Nodes: <span id="dc-removed-count">0</span></label>
+                        <input type="range" id="dc-threshold" min="0" max="5" value="0" class="node-threshold">
+                    </div>
+                </div>
+                <div class="path-info" id="dc-path">
+                    <h3>Optimal Path</h3>
+                    <div class="path-steps"></div>
+                    <div class="path-summary">
+                        <div>Total Time: <span class="total-time">0</span> minutes</div>
+                        <div>Total Distance: <span class="total-distance">0</span> km</div>
+                    </div>
+                </div>
+            </div>
+            <div class="network-card">
+                <h2>NYC Area</h2>
+                <div id="nyc-network" class="map-container"></div>
+                <div class="network-controls">
+                    <div class="slider-container">
+                        <label>Remove Lowest Market Nodes: <span id="nyc-removed-count">0</span></label>
+                        <input type="range" id="nyc-threshold" min="0" max="2" value="0" class="node-threshold">
+                    </div>
+                </div>
+                <div class="path-info" id="nyc-path">
+                    <h3>Optimal Path</h3>
+                    <div class="path-steps"></div>
+                    <div class="path-summary">
+                        <div>Total Time: <span class="total-time">0</span> minutes</div>
+                        <div>Total Distance: <span class="total-distance">0</span> km</div>
+                    </div>
+                </div>
+            </div>
+            <div class="network-card">
+                <h2>Detroit Area</h2>
+                <div id="detroit-network" class="map-container"></div>
+                <div class="network-controls">
+                    <div class="slider-container">
+                        <label>Remove Lowest Market Nodes: <span id="detroit-removed-count">0</span></label>
+                        <input type="range" id="detroit-threshold" min="0" max="0" value="0" class="node-threshold">
+                    </div>
+                </div>
+                <div class="path-info" id="detroit-path">
+                    <h3>Optimal Path</h3>
+                    <div class="path-steps"></div>
+                    <div class="path-summary">
+                        <div>Total Time: <span class="total-time">0</span> minutes</div>
+                        <div>Total Distance: <span class="total-distance">0</span> km</div>
+                    </div>
+                </div>
+            </div>
+            <div class="network-card">
+                <h2>Raleigh Area</h2>
+                <div id="raleigh-network" class="map-container"></div>
+                <div class="network-controls">
+                    <div class="slider-container">
+                        <label>Remove Lowest Market Nodes: <span id="raleigh-removed-count">0</span></label>
+                        <input type="range" id="raleigh-threshold" min="0" max="1" value="0" class="node-threshold">
+                    </div>
+                </div>
+                <div class="path-info" id="raleigh-path">
+                    <h3>Optimal Path</h3>
+                    <div class="path-steps"></div>
+                    <div class="path-summary">
+                        <div>Total Time: <span class="total-time">0</span> minutes</div>
+                        <div>Total Distance: <span class="total-distance">0</span> km</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

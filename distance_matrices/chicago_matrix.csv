@@ -1,0 +1,67 @@
+From Location,To Location,Distance (miles),Travel Time (minutes)
+"Downtown Naperville, IL","Burr Ridge, IL",18.6,0:25:00
+"Downtown Naperville, IL","Deerbrook, IL",38.3,0:44:00
+"Downtown Naperville, IL","Downers Grove, IL",8.3,0:17:00
+"Downtown Naperville, IL","Evanston, IL",38.3,0:59:00
+"Downtown Naperville, IL","Lincoln Park, IL",34.3,0:54:00
+"Downtown Naperville, IL","Magnificent Mile, IL",32.3,0:48:00
+"Downtown Naperville, IL","Oak Brook, IL",12.9,0:18:00
+"Downtown Naperville, IL","Old Town, IL",32.6,0:47:00
+"Downtown Naperville, IL","South Naperville, IL",9.1,0:21:00
+"Downtown Naperville, IL","West Loop, IL",30.7,0:42:00
+"Downtown Naperville, IL","Wicker Park, IL",30.4,0:47:00
+"Burr Ridge, IL","Deerbrook, IL",32,0:34:00
+"Burr Ridge, IL","Downers Grove, IL",10,0:20:00
+"Burr Ridge, IL","Evanston, IL",32,0:49:00
+"Burr Ridge, IL","Lincoln Park, IL",24.5,0:34:00
+"Burr Ridge, IL","Magnificent Mile, IL",21.4,0:31:00
+"Burr Ridge, IL","Oak Brook, IL",9.2,0:16:00
+"Burr Ridge, IL","Old Town, IL",21.4,0:34:00
+"Burr Ridge, IL","South Naperville, IL",19.9,0:28:00
+"Burr Ridge, IL","West Loop, IL",19.5,0:29:00
+"Burr Ridge, IL","Wicker Park, IL",22.1,0:35:00
+"Deerbrook, IL","Downers Grove, IL",30.5,0:37:00
+"Deerbrook, IL","Evanston, IL",15.8,0:27:00
+"Deerbrook, IL","Lincoln Park, IL",23.8,0:50:00
+"Deerbrook, IL","Magnificent Mile, IL",26.1,0:53:00
+"Deerbrook, IL","Oak Brook, IL",26,0:34:00
+"Deerbrook, IL","Old Town, IL",24.7,0:49:00
+"Deerbrook, IL","South Naperville, IL",48.3,1:01:00
+"Deerbrook, IL","West Loop, IL",25.6,0:49:00
+"Deerbrook, IL","Wicker Park, IL",23.1,0:45:00
+"Downers Grove, IL","Evanston, IL",30.4,0:48:00
+"Downers Grove, IL","Lincoln Park, IL",26.4,0:43:00
+"Downers Grove, IL","Magnificent Mile, IL",24.4,0:37:00
+"Downers Grove, IL","Oak Brook, IL",5,0:11:00
+"Downers Grove, IL","Old Town, IL",24.7,0:37:00
+"Downers Grove, IL","South Naperville, IL",19.4,0:33:00
+"Downers Grove, IL","West Loop, IL",22.8,0:32:00
+"Downers Grove, IL","Wicker Park, IL",22.6,0:37:00
+"Evanston, IL","Lincoln Park, IL",10.3,0:28:00
+"Evanston, IL","Magnificent Mile, IL",12.4,0:32:00
+"Evanston, IL","Oak Brook, IL",26.5,0:48:00
+"Evanston, IL","Old Town, IL",11.9,0:31:00
+"Evanston, IL","South Naperville, IL",48.9,1:15:00
+"Evanston, IL","West Loop, IL",15.1,0:39:00
+"Evanston, IL","Wicker Park, IL",10,0:38:00
+"Lincoln Park, IL","Magnificent Mile, IL",3.2,0:10:00
+"Lincoln Park, IL","Oak Brook, IL",22.2,0:38:00
+"Lincoln Park, IL","Old Town, IL",1.6,0:07:00
+"Lincoln Park, IL","South Naperville, IL",42.8,0:56:00
+"Lincoln Park, IL","West Loop, IL",3.6,0:17:00
+"Lincoln Park, IL","Wicker Park, IL",3,0:15:00
+"Magnificent Mile, IL","Oak Brook, IL",20,0:32:00
+"Magnificent Mile, IL","Old Town, IL",1.7,0:10:00
+"Magnificent Mile, IL","South Naperville, IL",39.9,0:53:00
+"Magnificent Mile, IL","West Loop, IL",2,0:11:00
+"Magnificent Mile, IL","Wicker Park, IL",4,0:18:00
+"Oak Brook, IL","Old Town, IL",20.7,0:31:00
+"Oak Brook, IL","South Naperville, IL",24,0:36:00
+"Oak Brook, IL","West Loop, IL",18.8,0:26:00
+"Oak Brook, IL","Wicker Park, IL",18.5,0:31:00
+"Old Town, IL","South Naperville, IL",40.1,0:54:00
+"Old Town, IL","West Loop, IL",2.2,0:12:00
+"Old Town, IL","Wicker Park, IL",2.5,0:13:00
+"South Naperville, IL","West Loop, IL",37.9,0:49:00
+"South Naperville, IL","Wicker Park, IL",40.4,0:58:00
+"West Loop, IL","Wicker Park, IL",3.1,0:13:00

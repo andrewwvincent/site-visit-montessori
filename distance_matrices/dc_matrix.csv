@@ -1,0 +1,37 @@
+From Location,To Location,Distance (miles),Travel Time (minutes)
+"Broadlands, VA","Chantilly, VA",14.6,0:19:00
+"Broadlands, VA","Fairfax, VA",22.2,0:30:00
+"Broadlands, VA","Gambrills, MD",60.4,1:08:00
+"Broadlands, VA","Hampshire, MD",56.4,1:07:00
+"Broadlands, VA","Montclair, VA",35.7,0:58:00
+"Broadlands, VA","Reston, VA",14.8,0:23:00
+"Broadlands, VA","South Riding, VA",7.7,0:17:00
+"Broadlands, VA","West Alex, VA",35.9,0:42:00
+"Chantilly, VA","Fairfax, VA",9.4,0:17:00
+"Chantilly, VA","Gambrills, MD",60.7,1:07:00
+"Chantilly, VA","Hampshire, MD",48.4,1:04:00
+"Chantilly, VA","Montclair, VA",30.1,0:43:00
+"Chantilly, VA","Reston, VA",15.1,0:22:00
+"Chantilly, VA","South Riding, VA",6.2,0:15:00
+"Chantilly, VA","West Alex, VA",27.9,0:39:00
+"Fairfax, VA","Gambrills, MD",50.6,0:00:58
+"Fairfax, VA","Hampshire, MD",40.1,0:53:00
+"Fairfax, VA","Montclair, VA",23.5,0:41:00
+"Fairfax, VA","Reston, VA",11.9,0:27:00
+"Fairfax, VA","South Riding, VA",11.8,0:25:00
+"Fairfax, VA","West Alex, VA",17.6,0:29:00
+"Gambrills, MD","Hampshire, MD",36.6,0:59:00
+"Gambrills, MD","Montclair, VA",58.7,1:12:00
+"Gambrills, MD","Reston, VA",49.9,1:03:00
+"Gambrills, MD","South Riding, VA",63,1:17:00
+"Gambrills, MD","West Alex, VA",33.9,0:50:00
+"Hampshire, MD","Montclair, VA",44.9,1:04:00
+"Hampshire, MD","Reston, VA",47.1,1:03:00
+"Hampshire, MD","South Riding, VA",55.6,1:11:00
+"Hampshire, MD","West Alex, VA",26.3,0:45:00
+"Montclair, VA","Reston, VA",39.4,0:51:00
+"Montclair, VA","South Riding, VA",28.7,0:52:00
+"Montclair, VA","West Alex, VA",24.4,0:33:00
+"Reston, VA","South Riding, VA",17.7,0:28:00
+"Reston, VA","West Alex, VA",27.2,0:35:00
+"South Riding, VA","West Alex, VA",33.3,0:42:00
